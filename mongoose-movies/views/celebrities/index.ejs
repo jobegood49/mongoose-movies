@@ -12,7 +12,7 @@
     <h2>Index Page</h2>
     <% result.forEach(celeb => { %>
         <li>
-            <%= celeb.name  %>
+            <a href="/celebrities/<%= celeb._id %>"><%= celeb.name  %></a>
         </li>
         </br>
         <% }) %>
