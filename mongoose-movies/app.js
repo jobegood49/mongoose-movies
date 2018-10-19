@@ -8,9 +8,19 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/mongoose-movies');
+//mongoose.connect('mongodb://localhost/mongoose-movies');
 
 const app = express();
+
+
+//mongoose connection
+mongoose.connect('mongodb://localhost/celebritiesApp', {useNewUrlParser: true })
+  .then(() => {
+    console.log('Connected to Mongo!');
+  }).catch(err => {
+    console.error('Error connecting to mongo', err);
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

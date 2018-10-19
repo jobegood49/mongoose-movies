@@ -27,7 +27,7 @@ const celebrities = [
   ];
   
   const mongoose = require('mongoose');
-  const celebritySchema = require('../models/celebrity.js');
+  const celebritySchema = require('../models/Celebrity.js');
   const Celebrity = mongoose.model('Celebrity', celebritySchema);
   
 //   mongoose.connect('mongodb://localhost/celebritiesApp')
