@@ -19,6 +19,11 @@ router.get('/', function (req, res, next) {
 
 });
 
+/* Render the new view */
+router.get('/new', (req, res, next) => {
+    res.render('celebrities/new');
+});
+
 /* GET a Celebrity page. */
 
 router.get('/:id', function (req, res, next) {
@@ -32,6 +37,24 @@ router.get('/:id', function (req, res, next) {
             next(err);
         });
 
+});
+
+/* GET a Celebrity page. */
+
+router.post('/', function (req, res, next) {
+    const obj = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+    }
+    Celebrity.create(obj)
+        .then(celebrity => {
+            res.redirect('/celebrities');
+        })
+        .catch(err => {
+            console.error('An error occured', err);
+            res.redirect('/celebrities/new');
+        });
 });
 
 
