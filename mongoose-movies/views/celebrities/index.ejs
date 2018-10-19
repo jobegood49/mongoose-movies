@@ -14,6 +14,9 @@
         <li>
             <a href="/celebrities/<%= celeb._id %>"><%= celeb.name  %></a>
         </li>
+        <form action="celebrities/<%= celeb._id %>/delete" method="POST">
+            <input type="submit" value='remove'>
+        </form>
         </br>
         <% }) %>
     <a href="/celebrities/new">Add your own favourite Celebrity!</a>

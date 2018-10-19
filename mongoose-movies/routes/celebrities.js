@@ -57,6 +57,20 @@ router.post('/', function (req, res, next) {
         });
 });
 
+/* Remove a specific id */
+
+router.post('/:id/delete', function (req, res, next) {
+    const id = req.params.id;
+    Celebrity.findByIdAndRemove(id)
+        .then(result => {
+            res.redirect('/celebrities');
+        })
+        .catch(error => {
+            next(error);
+        });
+});
+
+
 
 module.exports = router;
 
