@@ -17,10 +17,10 @@ router.get('/', function (req, res, next) {
 
 });
 
-// /* Render the new view */
-// router.get('/new', (req, res, next) => {
-//     res.render('celebrities/new');
-// });
+/* Render the new view */
+router.get('/new', (req, res, next) => {
+    res.render('movies/new');
+});
 
 /* GET a Movie page. */
 
@@ -37,23 +37,38 @@ router.get('/:id', function (req, res, next) {
 
 });
 
-// /* GET a Celebrity page. */
+/* Add a movie. */
 
-// router.post('/', function (req, res, next) {
-//     const obj = {
-//         name: req.body.name,
-//         occupation: req.body.occupation,
-//         catchPhrase: req.body.catchPhrase
-//     }
-//     Celebrity.create(obj)
-//         .then(celebrity => {
-//             res.redirect('/celebrities');
-//         })
-//         .catch(err => {
-//             console.error('An error occured', err);
-//             res.redirect('/celebrities/new');
-//         });
-// });
+router.post('/', function (req, res, next) {
+    // let {body} = req.body
+    // console.log(body)
+    let showtimes = []
+    if (req.body.afternoonTime) showtimes.push(req.body.afternoonTime)
+    if (req.body.morningTime) showtimes.push(req.body.morningTime)
+
+    let stars = []
+    if (req.body.femaleActor) stars.push(req.body.femaleActor)
+    if (req.body.maleActor) stars.push(req.body.maleActor)
+
+    // let showtimes = [req.body.afternoonTime]
+    const obj = {
+        stars: stars,
+        showtimes: showtimes,
+        title: req.body.title,
+        director: req.body.director,
+        image: req.body.image,
+        description: req.body.description
+    }
+    
+    Movie.create(obj)
+        .then(movie => {
+            res.redirect('/movies');
+        })
+        .catch(err => {
+            console.error('An error occured', err);
+            res.redirect('/movies/new');
+        });
+});
 
 // /* Remove a specific id */
 

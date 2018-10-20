@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Create a movie<h2>
+    <form action="/movies" method="post">
+        <label for="name">title</label>
+        <input type="text" name="title">
+        <label for="occupation">director</label>
+        <input type="text" name="director">
+        <label for="catchPhrase">description</label>
+        <input type="text" name="description">
+        <label for="image">Image</label>
+        <input type="text" name="image">
+        <br>
+        <p>Showings</p>
+        <input type="checkbox" name="morningTime" value="9am">Morning Show
+        <input type="checkbox" name="afternoonTime" value="5pm" checked="checked">Afernoon Show<br>
+        <p>Actors</p>
+        <input type="checkbox" name="maleActor" value="Tom">Tom Cruise
+        <input type="checkbox" name="femaleActor" value="Nicole" checked="checked">Nicole Kidman<br>
+        <input type="submit" value='add new movie'>
+    </form>
+</body>
+
+</html>
