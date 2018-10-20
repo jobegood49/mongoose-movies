@@ -70,6 +70,36 @@ router.post('/:id/delete', function (req, res, next) {
         });
 });
 
+/* Edit get specific id */
+
+router.get('/:id/edit', function (req, res, next) {
+    const id = req.params.id;
+    Celebrity.findById(id)
+        .then(celebrity => {
+            res.render('celebrities/edit', {celebrity});
+        })
+        .catch(error => {
+            next(error);
+        });
+});
+
+/* Edit a specific id */
+
+router.post('/:id', function (req, res, next) {
+    const obj = req.body;
+    const id = req.params.id;
+    console.log(obj)
+    Celebrity.findByIdAndUpdate(id, obj)
+    .then(celebrity => {
+        res.redirect('/celebrities');
+    })
+    .catch(err => {
+        console.error('An error occured', err);
+        res.redirect('/celebrities/<%= id %>/edit');
+    });
+});
+
+
 
 
 module.exports = router;
