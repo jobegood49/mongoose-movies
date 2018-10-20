@@ -70,18 +70,18 @@ router.post('/', function (req, res, next) {
         });
 });
 
-// /* Remove a specific id */
+/* Remove a specific movie */
 
-// router.post('/:id/delete', function (req, res, next) {
-//     const id = req.params.id;
-//     Celebrity.findByIdAndRemove(id)
-//         .then(result => {
-//             res.redirect('/celebrities');
-//         })
-//         .catch(error => {
-//             next(error);
-//         });
-// });
+router.post('/:id/delete', function (req, res, next) {
+    const id = req.params.id;
+    Movie.findByIdAndRemove(id)
+        .then(result => {
+            res.redirect('/movies');
+        })
+        .catch(error => {
+            next(error);
+        });
+});
 
 // /* Edit get specific id */
 
