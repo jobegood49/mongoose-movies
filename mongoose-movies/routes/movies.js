@@ -22,20 +22,20 @@ router.get('/', function (req, res, next) {
 //     res.render('celebrities/new');
 // });
 
-// /* GET a Celebrity page. */
+/* GET a Movie page. */
 
-// router.get('/:id', function (req, res, next) {
-//     const id = req.params.id;
-//     Celebrity.findById(id)
-//         .then(celebrity => {
-//             res.render('celebrities/show', { celebrity });
-//         })
-//         .catch(err => {
-//             console.error('An error occured', err);
-//             next(err);
-//         });
+router.get('/:id', function (req, res, next) {
+    const id = req.params.id;
+    Movie.findById(id)
+        .then(movie => {
+            res.render('movies/show', { movie });
+        })
+        .catch(err => {
+            console.error('An error occured', err);
+            next(err);
+        });
 
-// });
+});
 
 // /* GET a Celebrity page. */
 

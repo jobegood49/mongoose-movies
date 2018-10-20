@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <%= movie.title %>
+    <%= movie.director %>
+    <% movie.stars.forEach(star => { %>
+        <p><%= star %></p>
+    <% })%>
+    <img src="<%= movie.image %>" alt="">
+    <p><%= movie.description %></p>
+    <% movie.showtimes.forEach(time => { %>
+        <%= time %>
+    <% })%>
+    <p>
+    <a href="<%= movie._id %>/edit">Edit the info</a>
+    </p>
+    <form action="<%= movie._id %>/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+
+</body>
+
+</html>
+
