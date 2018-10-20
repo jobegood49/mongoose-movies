@@ -40,8 +40,12 @@ app.use(layouts);
 
 const index = require('./routes/index');
 const celebritiesRouter = require('./routes/celebrities')
+const moviesRouter = require('./routes/movies')
+
 app.use('/', index);
+app.use('/movies', moviesRouter);
 app.use('/celebrities', celebritiesRouter);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
